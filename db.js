@@ -14,7 +14,6 @@ function findUser(id){
 function insertUser(user){
     user.id = v4();
     global.users.push(user);
-    return user;
 }
 
 function updateUser(id, user){

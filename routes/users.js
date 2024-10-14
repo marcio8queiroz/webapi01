@@ -1,27 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const db = require("../db");
+var express = require('express');
+var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.json(db.findUsers());
+  res.send('respond with a resource');
 });
-
-router.post('/', (request, response) => {
-  const user = db.insertUser(request.body);
-  response.status(201).json(user);
-})
-
-router.put('/:id', (request, response) => {
-  const id = request.params.id;
-  const user = db.updateUser(id, request.body);
-  response.status(200).json(user);
-})
-
-router.delete('/:id', (request, response) => {
-  const id = request.params.id;
-  const user = db.deleteUser(id);
-  response.status(200).json({user});
-})
 
 module.exports = router;
